@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-dotenv
+pydantic-settings
+sqlalchemy
+asyncpg
+alembic
+greenlet
+asyncpg
+psycopg2-binary
+httpx
+pgvector
+jinja2

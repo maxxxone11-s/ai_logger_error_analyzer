@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error {{ error.id }}</title>
+    </head>
+<body>
+    <h1>Error #{{ error.id }}</h1>
+
+    <p><b>Level:</b> {{error.level }}</p>
+    <p><b>Message:</b> {{error.message }}</p>
+    <p><b>Source:</b> {{error.source }}</p>
+    <p><b>Created at:</b> {{error.created_at }}</p>
+
+    <h2>Stack trace</h2>
+    <pre>{{ error.stack_trace }}</pre>
+
+    <p>
+        <a href="/dashboard/errors/{{ error.id }}">Details</a>
+    </p>
+
+    <p>
+        <a href="/dashboard/">Back to dashboard</a>
+    </p>
+</body>
+</html>

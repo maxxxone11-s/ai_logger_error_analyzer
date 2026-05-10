@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Level</th>
+                <th>Message</th>
+                <th>Source</th>
+                <th>Created at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for error in errors %}
+                <tr>
+                    <td>{{ error.id }}</td>
+                    <td>{{ error.level }}</td>
+                    <td>{{ error.message }}</td>
+                    <td>{{ error.source }}</td>
+                    <td>{{ error.created_at }}</td>
+                    <td>
+                        <a href="/errors/{{ error.id }}/similar">Similar</a>
+                        |
+                        <a href="/dashboard/errors/{{ error.id }}">Details</a>
+                        |
+                        <a href="/dashboard/errors/{{ error.id }}/analyze">Analyze</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

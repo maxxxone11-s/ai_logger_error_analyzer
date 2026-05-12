@@ -30,4 +30,4 @@ jobs:
         
       - name: Check app imports
         run: |
-          python -c "from app.main import app; print('App imported successfully')"
+          python -c "from app.main pytest; print('App imported successfully')"

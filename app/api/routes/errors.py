@@ -12,6 +12,9 @@ from app.schemas.similar_error import SimilarErrorResponse
 
 router = APIRouter(prefix="/errors", tags=["errors"])
 
+def build_signature(message: str, source: str) -> str:
+    return f"{message}:{source}"
+
 @router.post("/", response_model=ErrorResponse)
 async def create_error(
     error_data: ErrorCreate,
@@ -26,7 +29,7 @@ async def create_error(
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     # Формируем signature
-    signature = f"{error_data.message}:{error_data.source}"
+    signature = build_signature(error_data.message, error_data.source)
     # Найти группу
     result = await db.execute(
         select(ErrorGroup).where(ErrorGroup.signature == signature)

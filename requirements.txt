@@ -8,3 +8,4 @@ greenlet
 httpx
 pgvector
 jinja2
+pytest

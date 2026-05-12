@@ -9,11 +9,9 @@ from app.schemas.error import ErrorCreate, ErrorResponse
 from app.models.error_group import ErrorGroup
 from app.services.embedding_service import get_embedding
 from app.schemas.similar_error import SimilarErrorResponse
+from app.services.signature_service import build_signature
 
 router = APIRouter(prefix="/errors", tags=["errors"])
-
-def build_signature(message: str, source: str) -> str:
-    return f"{message}:{source}"
 
 @router.post("/", response_model=ErrorResponse)
 async def create_error(

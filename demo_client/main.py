@@ -6,7 +6,7 @@ app = FastAPI()
 
 async def send_error_to_logger(e: Exception, source: str):
     error_payload = {
-        "api_key": "MarBI95aI9D--XudR3Saa-Z6SVpu9ar8gDWLQhEUNvE",
+        "api_key": "LUVtbCzBau-lyDJvgKpgW9clfnHy18xvH-pbzYINE90",
         "message": f"{type(e).__name__}: {str(e)}",
         "level": "error",
         "stack_trace": traceback.format_exc(),

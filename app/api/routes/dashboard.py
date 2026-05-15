@@ -21,7 +21,7 @@ async def dashboards(
     result = await db.execute(
         select(Error)
         .order_by(Error.created_at.desc())
-        .limit(10)
+        # .limit(10)
     )
 
     errors = result.scalars().all()

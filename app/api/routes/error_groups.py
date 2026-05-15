@@ -20,7 +20,7 @@ async def get_groups(
     if sort == "count":
         query = query.order_by(ErrorGroup.count.desc())
 
-    result = await db.execute(query)
+    result = await db.execute(select(ErrorGroup).order_by(ErrorGroup.id))
     groups = result.scalars().all()
 
     return groups
